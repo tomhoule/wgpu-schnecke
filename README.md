@@ -1,3 +1,3 @@
 Playing with lyon for tesselation.
 
-![result](./out.webm)
+![result](./out.webp)
