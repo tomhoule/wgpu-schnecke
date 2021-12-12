@@ -186,21 +186,8 @@ fn main() -> Result<(), Error> {
 
     let spiral = spiral_vertex_buffer();
     let vertices: &[u8] = cast_slice(&spiral.vertices);
-    // let vertices: Vec<u8> = spiral
-    //     .vertices
-    //     .iter()
-    //     .flat_map(|pt| -> [f32; 2] { (*pt).into() })
-    //     .flat_map(|f: f32| f.to_le_bytes())
-    //     .collect();
     let index_count = spiral.indices.len();
     let indexes = cast_slice(&spiral.indices);
-    // let indexes: Vec<u8> = spiral
-    //     .indices
-    //     .iter()
-    //     .flat_map(|idx: &u16| idx.to_le_bytes())
-    //     .collect();
-
-    dbg!(&indexes);
 
     let vertex_buffer = device.create_buffer_init(&wgpu::util::BufferInitDescriptor {
         label: Some("spiral buffer"),
@@ -496,5 +483,6 @@ fn video_encoding_thread(receiver: mpsc::Receiver<Vec<u8>>) -> Result<(), Error>
     }
 
     info!("Encoding: done");
+    println!("Rendered video written to out.y4m");
     Ok(())
 }

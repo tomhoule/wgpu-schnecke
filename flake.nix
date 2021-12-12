@@ -8,7 +8,7 @@
     {
       devShell."${system}" = pkgs.mkShell {
         inputsFrom = [ ];
-        packages = [ pkgs.mold ];
+        packages = [ pkgs.mold pkgs.ffmpeg ];
 
         inherit LD_LIBRARY_PATH;
       };
